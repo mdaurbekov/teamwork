@@ -49,8 +49,8 @@ public class Main {
             try {
                 productAmount = Integer.parseInt(parts[1]);
 
-                if (productAmount <= 0 || productAmount > 10) {
-                    System.out.println("Ошибка!Количество товара д.б. разумным (от 1 до 10)");
+                if (productAmount == 0) {
+                    basket[productCode] = 0;
                     continue;
                 }
 
