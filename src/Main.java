@@ -4,8 +4,8 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
-        String[] products = {"Хлеб белый", "Хлеб черный", "Сахар 1 кг", "Масло сливочное 200гр", "Крупа гречневая 1 кг"};
-        int[] prices = {40, 30, 100, 150, 100};
+        String[] products = {"Нарзан 0.5 л.", "Шоколад 100 гр.", "Йогурт", "Сырок глазированный", "Пломбир"};
+        int[] prices = {80, 100, 50, 30, 70};
         int[] basket = new int[products.length];
         int basketSum = 0;
         int productCode;
@@ -67,10 +67,13 @@ public class Main {
         for (int i = 0, j = 1; i < products.length; i++) {
 
             if (basket[i] != 0) {
+
+                int actionSum = ((basket[i] - basket[i] % 3) * prices[i] * 2) / 3 + basket[i] % 3 * prices[i];
+
                 System.out.println(j + ") код " + (i + 1) + ". " + products[i] + ". Вы купили: "
                         + basket[i] + " ед. Цена: " + prices[i] + " руб. за ед.товара. Всего: "
-                        + basket[i] * prices[i] + " руб.");
-                basketSum += basket[i] * prices[i];
+                        + actionSum + " руб.");
+                basketSum += actionSum;
                 j++;
             }
         }
