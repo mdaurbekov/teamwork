@@ -47,27 +47,30 @@ public class Main {
             }
 
             try {
+
                 productAmount = Integer.parseInt(parts[1]);
-
-
 
             } catch (NumberFormatException e) {
 
                 System.out.println("Ошибка!Введены некорректные данные!");
                 continue;
             }
-            if (productAmount == 0) {
-                basket[productCode] = 0;
-                continue;
-            }
 
-            basket[productCode] += productAmount;
+            if (productAmount == 0) {
+
+                basket[productCode] = 0;
+
+            } else {
+
+                basket[productCode] += productAmount;
+
+            }
         }
 
         System.out.println("Ваша потребительская корзина:");
         for (int i = 0, j = 1; i < products.length; i++) {
 
-            if (basket[i] != 0) {
+            if (basket[i] > 0) {
 
                 int actionSum = ((basket[i] - basket[i] % 3) * prices[i] * 2) / 3 + basket[i] % 3 * prices[i];
 
