@@ -49,17 +49,16 @@ public class Main {
             try {
                 productAmount = Integer.parseInt(parts[1]);
 
-                if (productAmount == 0) {
-                    basket[productCode] = 0;
-                    continue;
-                }
 
             } catch (NumberFormatException e) {
 
                 System.out.println("Ошибка!Введены некорректные данные!");
                 continue;
             }
-
+            if (productAmount == 0) {
+                basket[productCode] = 0;
+                continue;
+            }
             basket[productCode] += productAmount;
         }
 
